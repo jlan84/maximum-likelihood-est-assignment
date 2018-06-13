@@ -28,7 +28,7 @@ The likelihood function is a measure of how reasonable a given value of `p` is g
 
 Since we're doing coin flips, the probabilities in question are:
 
-![Definition of Coin Flip Probabilities](p-coin-flip-definition.png)
+![Definition of Coin Flip Probabilities](img/p-coin-flip-definition.png)
 
 2\. Write a function `coin_log_likelihood` that returns the *logarithm* of the likelihood of `p` given a sequence of coin flips.
 
