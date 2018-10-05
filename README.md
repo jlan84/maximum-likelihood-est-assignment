@@ -64,6 +64,8 @@ Use your function to compute the *log-likelihood* of each of these coins given t
 <img src="img/two-coin-likelihood.png" alt="Example of Two Coin Likelihood Function">
 </p>
 
+Note that since probabilities are less than one, the log-likelihood is always *negative*, so the bars extending downwards, while weird, is correct.
+
 6\. Wrap your plotting code in a function so that you can continue to use it.
 
 ```python
