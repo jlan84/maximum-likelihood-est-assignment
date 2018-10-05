@@ -37,7 +37,7 @@ Since we're doing coin flips, the probabilities in question are:
 2\. Write a function `coin_log_likelihood` that returns the *logarithm* of the likelihood of `p` given a sequence of coin flips.
 
 ```python
-def coin_log_likelihood(p: float, flips: np.array) -> float:
+def coin_log_likelihood(p, flips):
     """Return the log-likelihood of a parameter p given a sequence of coin flips.
     """
 ```
@@ -60,12 +60,14 @@ Use your function to compute the *log-likelihood* of each of these coins given t
 
 5\. Make a bar chart of these two probabilities.  Here's how the resulting chart should look.
 
+<p align=center>
+<img src="img/two-coin-likelihood.png" alt="Example of Two Coin Likelihood Function">
+</p>
+
 6\. Wrap your plotting code in a function so that you can continue to use it.
 
 ```python
-def plot_coin_likelihood(ax: matplotlib.axes.Axes, 
-                         ps: np.array,
-                         data: np.array) -> None:
+def plot_coin_likelihood(ax, ps, data):
 ```
 
 7\. Make a plot of the likelihood for each *truncated* sequence of flips.  That is:
@@ -102,8 +104,7 @@ Now let's generalize the above ideas to an *infinite* set of probabilities, i.e.
 10\. Write a function `plot_coin_likelihood_continuous` that is much like your previous `plot_coin_likelihood` function, but draws a **line** plot (i.e. the graph of a function) over the entire range of probabilities.  You won't need to pass in an array of probabilities to this one:
 
 ```python
-def plot_coin_likelihood_continuous(matplotlib.axes.Axes, 
-                                    data: np.array) -> None:
+def plot_coin_likelihood_continuous(ax, data):
 ```
 
 11\. Use your function to plot like likelihood function for the full sequence of flips.  You result should look something like this:
