@@ -17,8 +17,22 @@ Let's start with the most mundane (but instructive) example, *flipping coins*!
 1\. Write a function `flip_coin` that returns an array of zeros and ones representing a sequence of `n` flips of a coin of fairness `p`.
 
 ```python
-def flip_coin(n: int, p: float) -> np.array:
-    """Flip a coin of fairness p, n times."""
+def flip_coin(n, p) -> np.array:
+    """Flip a coin of fairness p, n times.
+    
+    Parameters
+    ----------
+    n: int
+      The number of times to flip the coin.
+
+    p: float, between zero and one.
+      The probability the coin flips heads.
+
+    Returns
+    -------
+    flips: np.array of ints
+      The results of the coin flips, where 0 is a tail and 1 is a head.
+    """
     pass
 ```
 
@@ -58,7 +72,7 @@ H, T, T, T, H, H, T, T, T, T
 
 Use your function to compute the *log-likelihood* of each of these coins given the sequence of coin flips.  Which coin is more likely the one you chose and flipped?  Does this align with your intuition?
 
-5\. Make a bar chart of these two probabilities.  Here's how the resulting chart should look.
+5\. Make a bar chart of these two log-likelihoods.  Here's how the resulting chart should look.
 
 <p align=center>
 <img src="img/two-coin-likelihood.png" alt="Example of Two Coin Likelihood Function">
