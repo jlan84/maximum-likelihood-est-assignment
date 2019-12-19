@@ -6,7 +6,7 @@ Today we'll be working with a dataset provided by the city of Austin's open data
 Create a `SparkSession` object, and read in the csv file. If you're on a docker instance, you'll want to copy the data over there first.  Note, when reading in the data, you'll want to use two keyword arguments, , `header='true',  inferSchema='true'` so that you'll have nice column names.  It will also convert the latitudes and longitudes to floats, even though we won't be using those.
 
 ## 2. Create a Date Object Column
-We'll be using `PySpark` functions to quickly access various quantities like `dayofmonth`, ect from columns, however, we might still like to be able to differentiate between weekday and weekend behavior.  To do so, create a `udf` to map the "Published Date" string to a `datetime` object.
+We'll be using `PySpark` functions to quickly access various quantities like `dayofmonth`, ect from columns, however, we might still like to be able to differentiate between weekday and weekend behavior.  To do so, create a `udf` to map the "Published Date" string to a `datetime` object.  <a href="https://docs.python.org/3.8/library/datetime.html#strftime-and-strptime-format-codes">This table</a> of format codes for creating `datetime`  might be useful.
 
 ## 3. Find Incident Types
 We can see that incidents are categorical variables.  Create a list of unique incident types.
