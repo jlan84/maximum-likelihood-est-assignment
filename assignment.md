@@ -1,4 +1,6 @@
-# Exploring Maximum Likelihood
+# Maximum Likelihood
+
+## Introduction
 
 In this exercise we're going to explore the concept of maximum likelihood estimation (MLE).
 
@@ -9,8 +11,9 @@ Maximum likelihood estimation is the gold standard methodology for estimating so
   
 We will start by using MLE to figure choose between a finite number of possibilities (the truth is one of these ten things, which one of the possibilities is most likely), and will then generalize the method to choosing between an infinite number of possibilities.
 
+## Basic
 
-# Coin Flips
+### Part 1: Coin Flips
 
 Let's start with the most mundane (but instructive) example, *flipping coins*!
 
@@ -39,13 +42,13 @@ def flip_coin(n, p) -> np.array:
 The likelihood function is a measure of how reasonable a given value of `p` is given some observed data.  It is defined as the probability of observing sequence of coin flips $\{f_1, f_2, \ldots, f_k\}$, given some value of `p`:
 
 <p align=center>
-<img src="img/likelihood-definition.png" alt="Definition of Likelihood Function">
+<img src="images/likelihood-definition.png" alt="Definition of Likelihood Function">
 </p>
 
 Since we're doing coin flips, the probabilities in question are:
 
 <p align=center>
-<img src="img/p-coin-flip-definition.png" alt="Definition of Coin Flip Probabilities">
+<img src="images/p-coin-flip-definition.png" alt="Definition of Coin Flip Probabilities">
 </p>
 
 2\. Write a function `coin_log_likelihood` that returns the *logarithm* of the likelihood of `p` given a sequence of coin flips.
@@ -67,7 +70,7 @@ H, T, T, T, H, H, T, T, T, T
 4\. Suppose the are *two* coins in the bag, and we are provided with the knowledge that:
 
 <p align=center>
-<img src="img/coin-ps.png" alt="Coin Flip Probabilities">
+<img src="images/coin-ps.png" alt="Coin Flip Probabilities">
 </p>
 
 Use your function to compute the *log-likelihood* of each of these coins given the sequence of coin flips.  Which coin is more likely the one you chose and flipped?  Does this align with your intuition?
@@ -75,7 +78,7 @@ Use your function to compute the *log-likelihood* of each of these coins given t
 5\. Make a bar chart of these two log-likelihoods.  Here's how the resulting chart should look.
 
 <p align=center>
-<img src="img/two-coin-likelihood.png" alt="Example of Two Coin Likelihood Function">
+<img src="images/two-coin-likelihood.png" alt="Example of Two Coin Likelihood Function">
 </p>
 
 Note that since probabilities are less than one, the log-likelihood is always *negative*, so the bars extending downwards, while weird, is correct.
@@ -100,7 +103,7 @@ Tenth plot for: H, T, T, T, H, H, T, T, T, T
 You'll find the function you wrote earlier useful.  The result should look like:
 
 <p align=center>
-<img src="img/two-coin-likelihoods.png" alt="Example of Two Coin Likelihood Functions">
+<img src="images/two-coin-likelihoods.png" alt="Example of Two Coin Likelihood Functions">
 </p>
 
 8\. Spend some time discussing how the likelihood of each possibility evolves as we flip the coin more and more.  Does the evolution make sense to you?
@@ -126,7 +129,7 @@ def plot_coin_likelihood_continuous(ax, data):
 11\. Use your function to plot like likelihood function for the full sequence of flips.  You result should look something like this:
 
 <p align=center>
-<img src="img/coin-likelihood-continuous.png" alt="Likelihood For Full Sequence of Coin Flips">
+<img src="images/coin-likelihood-continuous.png" alt="Likelihood For Full Sequence of Coin Flips">
 </p>
 
 This plot is the graph on the **log-likelihood function** for the coin flipping experiment.  The **principle of maximum likelihood** states that the best estimate of the true fairness of the coin in the **maximum** of this function.
@@ -141,8 +144,9 @@ This plot is the graph on the **log-likelihood function** for the coin flipping 
 
 ∞\. **Wicked Bonus**: Prove your conjecture.
 
+## Advanced
 
-# Poisson Rate Estimation
+### Part 2: Poisson Rate Estimation
 
 In this example we will give another example of maximum likelihood estimation, this time using data from a real life experiment (and an important one at that!).
 
@@ -151,7 +155,7 @@ In 1919 [Ernest Rutherford](https://en.wikipedia.org/wiki/Ernest_Rutherford) com
 Rutherford observed a chunk of [radium](https://en.wikipedia.org/wiki/Radium) of a fixed and well measured mass for a fixed amount of time and then counted how many radioactive events he observed over that span of time.  He then repeated this experiment 2612 times, each time taking record of how many events he observed.
 
 <p align=center>
-<img src="img/rutherford-paper.png" alt="Image of Rutherford's Paper">
+<img src="images/rutherford-paper.png" alt="Image of Rutherford's Paper">
 </p>
 
 The following numpy array contains Rutherford's data.
@@ -174,7 +178,7 @@ You can play around with the Poisson distribution by importing `scipy.stats.pois
 3\. The log-likelihood function of the Poisson distribution is
 
 <p align=center>
-<img src="img/poisson-log-likelihood.png" alt="Log-Likelihood of Poisson Distribution">
+<img src="images/poisson-log-likelihood.png" alt="Log-Likelihood of Poisson Distribution">
 </p>
 
 Where `k_i` are the observed counts in our data, `N` is the number of data points we have observed, and the constant does not depend of the parameter λ.  
@@ -188,7 +192,7 @@ Plot the log likelihood function of Rutherford's data for a grid of λ's in the 
 Here's an example with some simulated data:
 
 <p align=center>
-<img src="img/simulated-data-and-model.png" alt="Poisson Fit with Simulated Data">
+<img src="images/simulated-data-and-model.png" alt="Poisson Fit with Simulated Data">
 </p>
 
 6\. The **law of small numbers** (non-canonical, yet clever, name) states that binomial distribution with a very large `N` and a very small `p` are very well approximated by Poisson distributions.
